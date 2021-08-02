@@ -1,0 +1,63 @@
+System -------------------------------------------
+
+base
+base-devel (group): a bunch of base tools
+linux
+linux-firmware
+# linux-g14
+# linux-g14-headers
+xorg-server
+xorg-xinput
+xorg-xrandr
+xorg-xinit: startx to window manager from terminal
+# xorg-xev
+grub: boot loader
+# efibootmgr: efi boot manager for dual boot
+# os-prober: utility to detect other OSs for dual boot
+pulseaudio: audio driver
+# pulseaudio-alsa: pulseaudio to support bluez
+# pulseaudio-bluetooth: pulseaudio to support bluez
+# bluez: bluetooth driver
+# bluez-utils: bluez utilites
+# xf86-input-libinput: libinput for xorg
+networkmanager: network daemon
+nvidia: nvidia drivers for standard linux
+nvidia-utils: nvidia utilities
+# nvidia-dkms: nvidia drivers for custom kernels (linux-g14)
+# nvidia-settings
+# brightnessctl: brightness controller
+# playerctl: player controller
+# asusctl
+bash-complete-alias:  bash completion for aliases
+
+Tools --------------------------------------------
+
+packer: AUR package installer
+expac: pacman database extraction util [r: packer]
+wget: tool to retrieve files from the web [r: packer]
+jshon [u]: json parser for shell [r: packer]
+git [u]: version control util [r: packer]
+# flameshot: screenshot tool
+
+Interface ----------------------------------------
+
+# lightdm: display manager
+# lightdm-gtk-greeter: UI for lightdm
+# lightdm-gtk-greeter-settings: settings for UI for lightdm
+i3 (group): window manager
+  i3-gaps
+  i3blocks
+  i3lock
+  i3status
+dunst: notification manager
+rofi: menu
+lxappearance: theme manager
+
+Apps ---------------------------------------------
+
+vim: text editor
+ranger: file explorer
+firefox
+spotify
+discord
+# steam
