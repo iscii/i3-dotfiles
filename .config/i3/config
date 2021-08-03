@@ -1,7 +1,6 @@
 # i3 config
 set $mod Mod4
 font pango:Source Code Pro 8
-exec --no-startup-id xss-lock --transfer-sleep-lock --i3lock --nofork
 floating_modifier $mod
 focus_follows_mouse yes
 bindsym $mod+Shift+q kill
@@ -21,8 +20,8 @@ bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
-bindsym $mod+v split h
-bindsym $mod+Shift+v split v
+bindsym $mod+Shift+v split h
+bindsym $mod+v split v
 bindsym $mod+Shift+f fullscreen toggle
 bindsym $mod+s layout stacking
 bindsym $mod+t layout tabbed
@@ -32,7 +31,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+z [urgent=latest] focus
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+Shift+x exec i3lock
 mode resize {
     bindsym h resize shrink width 10 px or 10 ppt
@@ -68,10 +67,10 @@ bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
-assign [class=Alacritty] 1 
-assign [class=firefox] 2 
-for_window [class=Spotify] move to workspace 3 
-assign [class=discord] 4 
+assign [class="Alacritty"] 1 
+assign [class="firefox"] 2 
+for_window [class="Spotify"] move to workspace 3 
+assign [class="discord"] 4 
 gaps inner 10
 gaps outer 0
 for_window [class="^.*"] border pixel 1
@@ -85,9 +84,9 @@ hide_edge_borders both
 bar {
      status_command i3status
 }
-exec mount -t vboxsf -o gid=1000,uid=1000 archlinux_config /mnt/shared
-exec_always xrandr --output Virtaul1 --mode 1280x720
-bindsym $mod+d exec rofi -modi drun,run -show drun
+exec mount -t vboxsf -o gid=1000,uid=1000 Shared /mnt/shared
+exec_always xrandr --output Virtual1 --mode 1280x720
+bindsym $mod+d exec "rofi -modi drun,run -show drun"
 bindsym $mod+Return exec alacritty
 bindsym $mod+f exec firefox
 bindsym $mod+g exec gimp

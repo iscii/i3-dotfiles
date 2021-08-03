@@ -5,7 +5,7 @@
 # This script generates the i3 config file (v4)
 
 # Apps
-menu="rofi"
+menu="rofi -modi drun,run -show drun"
 terminal="alacritty"
 browser="firefox"
 painter="gimp"
@@ -51,7 +51,7 @@ options="${options}set \$mod Mod4\n"
 options="${options}font pango:Source Code Pro 8\n"
 
 # Use xss-lock to grab a logind suspend inhibit lock. i3lock locks screen before suspend
-options="${options}exec --no-startup-id xss-lock --transfer-sleep-lock --i3lock --nofork\n"
+# options="${options}exec --no-startup-id xss-lock --transfer-sleep-lock --i3lock --nofork\n"
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 options="${options}floating_modifier \$mod\n"
@@ -87,10 +87,10 @@ options="${options}bindsym \$mod+Shift+Up move up\n"
 options="${options}bindsym \$mod+Shift+Right move right\n"
 
 # Split in horizontal orientation
-options="${options}bindsym \$mod+v split h\n"
+options="${options}bindsym \$mod+Shift+v split h\n"
 
 # Split in vertical orientation
-options="${options}bindsym \$mod+Shift+v split v\n"
+options="${options}bindsym \$mod+v split v\n"
 
 # Enter fullscreen mode for the focused container
 options="${options}bindsym \$mod+Shift+f fullscreen toggle\n"
@@ -122,7 +122,7 @@ options="${options}bindsym \$mod+Shift+c reload\n"
 options="${options}bindsym \$mod+Shift+r restart\n"
 
 # Log out session
-options="${options}bindsym \$mod+Shift+e exec \"i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'\n"
+options="${options}bindsym \$mod+Shift+e exec \"i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'\"\n"
 
 # Lock session
 options="${options}bindsym \$mod+Shift+x exec i3lock\n"
@@ -173,10 +173,10 @@ options="${options}bindsym \$mod+Shift+9 move container to workspace $ws9\n"
 options="${options}bindsym \$mod+Shift+0 move container to workspace $ws10\n"
 
 # Assign applications to workspaces
-options="${options}assign [class=$ws1app] $ws1\n"
-options="${options}assign [class=$ws2app] $ws2\n"
-options="${options}for_window [class=$ws3app] move to workspace $ws3\n" # Spotify
-options="${options}assign [class=$ws4app] $ws4\n"
+options="${options}assign [class=\"$ws1app\"] $ws1\n"
+options="${options}assign [class=\"$ws2app\"] $ws2\n"
+options="${options}for_window [class=\"$ws3app\"] move to workspace $ws3\n" # Spotify
+options="${options}assign [class=\"$ws4app\"] $ws4\n"
 
 # Running with i3-gaps
 if [ $use_gaps ]; then
@@ -209,11 +209,11 @@ options="${options}}\n"
 # Host-specific settings
 if [ "$hostname" == "iZArchVM" ]; then
     # Mount shared folder
-    sharedfolder="archlinux_config"
+    sharedfolder="Shared"
     options="${options}exec mount -t vboxsf -o gid=1000,uid=1000 $sharedfolder /mnt/shared\n"
     
     # Set screen resolution to 1280x720 (available resolutions with $ xrandr -d :0)
-    options="${options}exec_always xrandr --output Virtaul1 --mode 1280x720\n"
+    options="${options}exec_always xrandr --output Virtual1 --mode 1280x720\n"
 fi
 if [ "$hostname" == "iZArchG14" ]; then
   # Use pactl to adjust volume in pulseaudio
@@ -248,7 +248,7 @@ if [ "$hostname" == "iZArchG14" ]; then
 fi
 
 # Application keybinds
-options="${options}bindsym \$mod+d exec $menu -modi drun,run -show drun\n"
+options="${options}bindsym \$mod+d exec \"$menu\"\n"
 options="${options}bindsym \$mod+Return exec $terminal\n"
 options="${options}bindsym \$mod+f exec $browser\n"
 options="${options}bindsym \$mod+g exec $painter\n"
