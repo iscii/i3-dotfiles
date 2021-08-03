@@ -84,7 +84,6 @@ hide_edge_borders both
 bar {
      status_command i3status
 }
-exec mount -t vboxsf -o gid=1000,uid=1000 Shared /mnt/shared
 exec_always xrandr --output Virtual1 --mode 1280x720
 bindsym $mod+d exec "rofi -modi drun,run -show drun"
 bindsym $mod+Return exec alacritty
@@ -92,3 +91,4 @@ bindsym $mod+f exec firefox
 bindsym $mod+g exec gimp
 bindsym $mod+Shift+p exec flameshot
 exec_always feh --bg-scale /home/iscii/Pictures/wallpapers/wallpaper.png
+exec picom -CGb

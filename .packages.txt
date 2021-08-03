@@ -23,6 +23,7 @@ nvidia: nvidia drivers for standard linux
 nvidia-utils: nvidia utilities
 # nvidia-settings
 bash-complete-alias: bash completion for aliases (git dotfiles)
+mesa-demos: glxinfo
 
 [vm] 
 virtualbox-guest-utils: virtualbox drivers
@@ -34,6 +35,7 @@ virtualbox-guest-utils: virtualbox drivers
 # brightnessctl: brightness controller
 # playerctl: player controller
 # asusctl
+
 Tools --------------------------------------------
 
 packer: AUR package installer
@@ -52,6 +54,7 @@ i3 (group): window manager
 dunst: notification manager
 rofi: menu
 lxappearance: theme manager
+picom: compositor for window customization and transparency
 
 Apps ---------------------------------------------
 

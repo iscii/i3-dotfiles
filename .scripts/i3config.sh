@@ -12,8 +12,6 @@ painter="gimp"
 screenshot="flameshot"
 
 # Settings
-gaps_inner=10
-gaps_outer=0
 ws1="1 "
 ws2="2 "
 ws3="3 " 
@@ -28,6 +26,8 @@ ws1app="Alacritty"
 ws2app="firefox"
 ws3app="Spotify"
 ws4app="discord"
+gaps_inner=10
+gaps_outer=0
 
 cfg_file="$HOME/.config/i3/config"
 
@@ -217,11 +217,11 @@ if [ "$hostname" == "iZArchVM" ]; then
 fi
 if [ "$hostname" == "iZArchG14" ]; then
   # Use pactl to adjust volume in pulseaudio
-	refresh_i3status="killall -SIGUSR1 i3status"
+    refresh_i3status="killall -SIGUSR1 i3status"
     options="${options}bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status" # [Vol Up Key]
-	options="${options}bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status" # [Vol Down Key]
-	options="${options}bindsym XF86AudioMute exec --no-startup-id pactl set-sink -mute @DEFAULT_SINK@ toggle && $refresh_i3status" # [Fn+F1]
-	options="${options}bindsym XF86AudioMicMute exec bash $HOME/.scripts/$hostname/mic.sh && $refresh_i3status" # [Mic Mute Key]
+    options="${options}bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status" # [Vol Down Key]
+    options="${options}bindsym XF86AudioMute exec --no-startup-id pactl set-sink -mute @DEFAULT_SINK@ toggle && $refresh_i3status" # [Fn+F1]
+    options="${options}bindsym XF86AudioMicMute exec bash $HOME/.scripts/$hostname/mic.sh && $refresh_i3status" # [Mic Mute Key]
   
     # Use playerctl for player controls
     options="${options}bindsym XF86AudioPrev exec playerctl previous\n" # [Fn+F2]
@@ -257,6 +257,8 @@ options="${options}bindsym \$mod+Shift+p exec $screenshot\n"
 # Startup commands
 # Set wallpaper on startup
 options="${options}exec_always feh --bg-scale $HOME/Pictures/wallpapers/wallpaper.png\n"
+# Start picom
+options="${options}exec picom -CGb\n"
 
 # Create and write to config file
 printf "$options%s" > "$cfg_file"
