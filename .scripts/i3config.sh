@@ -209,8 +209,8 @@ options="${options}}\n"
 # Host-specific settings
 if [ "$hostname" == "iZArchVM" ]; then
     # Mount shared folder
-    sharedfolder="Shared"
-    options="${options}exec mount -t vboxsf -o gid=1000,uid=1000 $sharedfolder /mnt/shared\n"
+    # sharedfolder="Shared"
+    # options="${options}exec sudo mount -t vboxsf -o gid=1000,uid=1000 $sharedfolder /mnt/shared\n"
     
     # Set screen resolution to 1280x720 (available resolutions with $ xrandr -d :0)
     options="${options}exec_always xrandr --output Virtual1 --mode 1280x720\n"
