@@ -1,0 +1,73 @@
+;mai color palette
+[color]
+gray = #70727f
+light_gray = #bab9c2
+blue_purple = #495c97
+purple = #a6a8d9
+light_purple = #d5d3f7
+pink = #efd7d1
+
+[bar/main]
+font-0 = "Source Code Pro:size=9"
+font-1 = "Font Awesome 5 Brands:pixelsize=9"
+font-2 = "Font Awesome 5 Free:pixelsize=9"
+height = 15
+radius = 7
+fixed-center = false
+background = ${color.pink}
+foreground = ${color.blue_purple}
+line-size = 3
+line-color = ${color.purple}
+border-size = 0
+padding = 0
+module-margin-left = 1
+module-margin-right = 1
+dim-value = 1.0
+tray-position = none
+cursor-click = pointer
+;offset-x = 1
+;offset-y = 1
+;monitor = ${env:MONITOR:HDMI-1}
+
+[bar/ws]
+inherit = bar/main
+width = 20%
+modules-left = ws
+
+[bar/widgets]
+inherit = bar/main
+width = 30%
+modules-right = pulseaudio bluetooth network date
+
+[bar/playing]
+inherit = bar/main
+width = 20%
+modules-center = playing
+
+[module/ws]
+type = internal/i3
+pin-workspaces = true
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+; i need this to be mai's bunny hairclip
+ws-icon-default = 0 
+format = <label-state> <label-mode>
+label-focused = %icon%
+label-focused-foreground = #ffffff
+label-focused-background = #000000 
+label-focused-underline = ${color.gray}
+label-focused-padding = 4
+label-unfocused = %icon%
+label-unfocused-padding = 4
+label-visible = %icon%
+label-visible-underline = ${color.gray}
+label-visible-padding = 4
+label-urgent = %icon%
+label-urgent-foreground = #000000
+label-urgent-background = #ff0000
+label-urgent-padding = 4
+
+
+

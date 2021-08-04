@@ -12,10 +12,10 @@ painter="gimp"
 screenshot="flameshot"
 
 # Settings
-ws1="1 "
-ws2="2 "
-ws3="3 " 
-ws4="4 "
+ws1="1"
+ws2="2"
+ws3="3" 
+ws4="4"
 ws5="5"
 ws6="6"
 ws7="7"
@@ -201,11 +201,6 @@ options="${options}for_window [window_type=\"menu\"] floating enable\n"
 # Hide borders
 options="${options}hide_edge_borders both\n"
 
-# Status bar
-options="${options}bar {\n"
-options="${options}     status_command i3status\n"
-options="${options}}\n"
-
 # Host-specific settings
 if [ "$hostname" == "iZArchVM" ]; then
     # Mount shared folder
@@ -259,6 +254,8 @@ options="${options}bindsym \$mod+Shift+p exec $screenshot\n"
 options="${options}exec_always feh --bg-scale $HOME/Pictures/wallpapers/wallpaper.png\n"
 # Start picom
 options="${options}exec picom -CGb\n"
+# Start polybar
+options="${options}exec_always --no-startup-id bash $HOME/.config/polybar/launch.sh\n"
 
 # Create and write to config file
 printf "$options%s" > "$cfg_file"

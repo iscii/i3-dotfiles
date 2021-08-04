@@ -47,30 +47,30 @@ mode resize {
     bindsym $mod+r mode "default"
 }
 bindsym $mod+r mode resize
-bindsym $mod+1 workspace 1 
-bindsym $mod+2 workspace 2 
-bindsym $mod+3 workspace 3 
-bindsym $mod+4 workspace 4 
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
-bindsym $mod+Shift+1 move container to workspace 1 
-bindsym $mod+Shift+2 move container to workspace 2 
-bindsym $mod+Shift+3 move container to workspace 3 
-bindsym $mod+Shift+4 move container to workspace 4 
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
-assign [class="Alacritty"] 1 
-assign [class="firefox"] 2 
-for_window [class="Spotify"] move to workspace 3 
-assign [class="discord"] 4 
+assign [class="Alacritty"] 1
+assign [class="firefox"] 2
+for_window [class="Spotify"] move to workspace 3
+assign [class="discord"] 4
 gaps inner 10
 gaps outer 0
 for_window [class="^.*"] border pixel 1
@@ -81,9 +81,6 @@ for_window [window_role="Preferences"] floating enable
 for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
 hide_edge_borders both
-bar {
-     status_command i3status
-}
 exec_always xrandr --output Virtual1 --mode 1280x720
 bindsym $mod+d exec "rofi -modi drun,run -show drun"
 bindsym $mod+Return exec alacritty
@@ -92,3 +89,4 @@ bindsym $mod+g exec gimp
 bindsym $mod+Shift+p exec flameshot
 exec_always feh --bg-scale /home/iscii/Pictures/wallpapers/wallpaper.png
 exec picom -CGb
+exec_always --no-startup-id bash /home/iscii/.config/polybar/launch.sh

@@ -43,6 +43,7 @@ expac: pacman database extraction util [r: packer]
 wget: tool to retrieve files from the web [r: packer]
 git: version control util [r: packer]
 jshon [u]: json parser for shell [r: packer]
+unzip: unzipper
 
 Interface ----------------------------------------
 
@@ -55,6 +56,7 @@ dunst: notification manager
 rofi: menu
 lxappearance: theme manager
 picom: compositor for window customization and transparency
+polybar: status bar
 
 Apps ---------------------------------------------
 
