@@ -14,8 +14,9 @@ fi
 # source complete_alias
 . /usr/share/bash-complete-alias/complete_alias
 
-# dunno what this is
+# color ls by default
 alias ls='ls --color=auto'
+# primary prompt char
 PS1='[\u@\h \W]\$ '
 
 # dotfiles repo config alias
