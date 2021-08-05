@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Courtesy to Polybar in ArchWiki
-
 # Terminate already running polybar instances
 killall -q polybar
 
@@ -11,7 +9,10 @@ while prgrep -u $UID -x polybar > /dev/null; do
 done
 
 # Launch Polybar
+polybar placeholder &
 polybar ws &
+polybar playing &
+polybar widgets &
 
 echo "Polybar launched"
 

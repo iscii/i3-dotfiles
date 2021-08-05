@@ -209,14 +209,23 @@ if [ "$hostname" == "iZArchVM" ]; then
     
     # Set screen resolution to 1280x720 (available resolutions with $ xrandr -d :0)
     options="${options}exec_always xrandr --output Virtual1 --mode 1280x720\n"
+   
+    # Use pactl to adjust volume in pulseaudio 
+    options="${options}bindsym F12 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%%\n" 
+    options="${options}bindsym F11 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%%\n" 
+    options="${options}bindsym F10 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle\n"
+ 
+    # Use playerctl for player controls
+    options="${options}bindsym F7 exec playerctl previous\n"
+    options="${options}bindsym F8 exec playerctl play-pause\n"
+    options="${options}bindsym F9 exec playerctl next\n"
 fi
 if [ "$hostname" == "iZArchG14" ]; then
   # Use pactl to adjust volume in pulseaudio
-    refresh_i3status="killall -SIGUSR1 i3status"
-    options="${options}bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status" # [Vol Up Key]
-    options="${options}bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status" # [Vol Down Key]
-    options="${options}bindsym XF86AudioMute exec --no-startup-id pactl set-sink -mute @DEFAULT_SINK@ toggle && $refresh_i3status" # [Fn+F1]
-    options="${options}bindsym XF86AudioMicMute exec bash $HOME/.scripts/$hostname/mic.sh && $refresh_i3status" # [Mic Mute Key]
+    options="${options}bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%%\n" # [Vol Up Key]
+    options="${options}bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%%\n" # [Vol Down Key]
+    options="${options}bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle\n" # [Fn+F1]
+    options="${options}bindsym XF86AudioMicMute exec bash $HOME/.scripts/i3/$hostname/mic.sh\n" # [Mic Mute Key]
   
     # Use playerctl for player controls
     options="${options}bindsym XF86AudioPrev exec playerctl previous\n" # [Fn+F2]
@@ -227,15 +236,15 @@ if [ "$hostname" == "iZArchG14" ]; then
     options="${options}bindsym XF86Launch4 exec sudo asusctl profile -n\n" # [Fn+F5]
   
     # Use brightnessctl to adjust screen brightness
-    options="${options}bindsym XF86MonBrightnessUp exec brightnessctl set +5%\n" # [Fn+F7]
-    options="${options}bindsym XF86MonBrightnessDown exec brightnessctl set 5%-\n" # [Fn+F8]
+    options="${options}bindsym XF86MonBrightnessUp exec brightnessctl set +5%%\n" # [Fn+F7]
+    options="${options}bindsym XF86MonBrightnessDown exec brightnessctl set 5%%-\n" # [Fn+F8]
   
     # Use brightnessctl to adjust keyboard brightness
     options="${options}bindsym XF86KbdBrightnessUp exec brightnexxctl -d asus::kbd_backlight set +1\n" # [Fn+Up]
     options="${options}bindsym XF86KbdBrightnessDown exec brightnessctl -d asus::kbd_backlight set 1-\n" # [Fn+Down]
 
     # Use xinput to toggle touchpad
-    options="${options}bindsym XF86TouchpadToggle exec back $HOME/.scripts/$hostname/touchpad.sh\n" # [Fn+F10]
+    options="${options}bindsym XF86TouchpadToggle exec back $HOME/.scripts/i3/$hostname/touchpad.sh\n" # [Fn+F10]
  
     # Unused keybinds 
     options="${options}bindsym \$mod+p exec <app>\n" # [Fn+F9]
@@ -255,10 +264,10 @@ options="${options}exec_always feh --bg-scale $HOME/Pictures/wallpapers/wallpape
 # Start picom
 options="${options}exec picom -CGb\n"
 # Start polybar
-options="${options}exec_always --no-startup-id bash $HOME/.config/polybar/launch.sh\n"
+options="${options}exec_always --no-startup-id bash $HOME/.scripts/polybar/launch.sh\n"
 
 # Create and write to config file
-printf "$options%s" > "$cfg_file"
+printf "$options%s" > "$cfg_file" # Invalid format errors are caused by stray % (indicator) signs. make them %%.
 
 if [ -f "$cfg_file" ]; then
     echo "Created i3 config file"

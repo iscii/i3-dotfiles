@@ -24,6 +24,7 @@ nvidia-utils: nvidia utilities
 # nvidia-settings
 bash-complete-alias: bash completion for aliases (git dotfiles)
 mesa-demos: glxinfo
+playerctl: player controller
 
 [vm] 
 virtualbox-guest-utils: virtualbox drivers
@@ -33,7 +34,6 @@ virtualbox-guest-utils: virtualbox drivers
 # linux-g14-headers
 # nvidia-dkms: nvidia drivers for custom kernels (linux-g14)
 # brightnessctl: brightness controller
-# playerctl: player controller
 # asusctl
 
 Tools --------------------------------------------
@@ -44,6 +44,7 @@ wget: tool to retrieve files from the web [r: packer]
 git: version control util [r: packer]
 jshon [u]: json parser for shell [r: packer]
 unzip: unzipper
+xbindkeys: get key code
 
 Interface ----------------------------------------
 

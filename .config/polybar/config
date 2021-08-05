@@ -1,49 +1,67 @@
-;mai color palette
-[color]
+[palette_mai]
 gray = #70727f
 light_gray = #bab9c2
 blue_purple = #495c97
 purple = #a6a8d9
 light_purple = #d5d3f7
+dark_pink = #d6afb4
 pink = #efd7d1
+
+[colors]
 transparent = #00000000
+red = #ff0000
 
 [bar/main]
-font-0 = "Source Code Pro:size=9"
-font-1 = "Font Awesome 5 Brands:pixelsize=9"
-font-2 = "Font Awesome 5 Free:pixelsize=9"
-height = 20
+font-0 = "Source Code Pro:size=10"
+font-1 = "Font Awesome 5 Brands:pixelsize=10"
+font-2 = "Font Awesome 5 Free:pixelsize=10"
+height = 24
 radius = 2
 fixed-center = false
-background = ${color.transparent}
-foreground = ${color.blue_purple}
+background = ${colors.transparent}
 line-size = 3
-line-color = ${color.purple}
-;invisible borders mimic margins/offset
+line-color = ${palette_mai.purple}
+border-color = ${colors.transparent}
 border-top-size = 10
-border-left-size = 10
-border-color = #00000000
 padding = 0
-module-margin-left = 1
-module-margin-right = 1
 tray-position = none
 cursor-click = pointer
 ;monitor = ${env:MONITOR:HDMI-1}
 
+;placeholds bar space for i3 so other bars can override-redirect
+[bar/placeholder]
+inherit = bar/main
+width = 100%
+modules-center = placeholder
+
 [bar/ws]
 inherit = bar/main
-width = 30%
+width = 25%
+offset-x = 0.9%
+override-redirect = true
+wm-restack = i3
 modules-left = ws
-
-[bar/widgets]
-inherit = bar/main
-width = 30%
-modules-right = pulseaudio bluetooth network date
 
 [bar/playing]
 inherit = bar/main
 width = 20%
+foreground = ${palette_mai.light_purple}
+offset-x = 40%
+override-redirect = true
+wm-restack = i3
 modules-center = playing
+
+[bar/widgets]
+inherit = bar/main
+width = 30%
+foreground = ${palette_mai.light_purple}
+offset-x = 69.2%
+override-redirect = true
+wm-restack = i3
+modules-right = wired-network pulseaudio date
+
+[module/placeholder]
+type = custom/script
 
 [module/ws]
 type = internal/i3
@@ -53,23 +71,89 @@ ws-icon-1 = 2;
 ws-icon-2 = 3;
 ws-icon-3 = 4;
 ; i need this to be mai's bunny hairclip
-ws-icon-default = 0 
+ws-icon-default =  
+index-sort = true
+enable-click = true
+enable-scroll = true
+wrapping-scroll = true
 format = <label-state> <label-mode>
 label-focused = %icon%
 label-unfocused = %icon%
 label-urgent = %icon%
 ; visible is the active workspace on an unfocused monitor
 ;label-visible = %icon%
+label-focused-foreground = ${palette_mai.light_purple}
+label-focused-underline = ${palette_mai.purple}
+label-unfocused-foreground = ${palette_mai.blue_purple}
+label-unfocused-underline = ${palette_mai.blue_purple}
+label-urgent-foreground = ${colors.red}
+label-urgent-underline = ${colors.red}
+label-focused-padding = 1
+label-unfocused-padding = 1
+label-urgent-padding = 1
 
-label-focused-foreground = #ffffff
-label-focused-underline = #ffffff
-label-unfocused-underline = #ff0000
-label-urgent-foreground = #000000
-label-urgent-background = #ff0000
+[module/wireless-network]
+type = internal/network
+interface = wlan0
+interval = 2.0
+format-disconnected = 
+format-connected =   <label-connected>
+format-packetloss =  <label-connected>
+label-connected = %ifname%
+format-disconnected-underline = ${palette_mai.purple}
+format-connected-underline = ${palette_mai.purple}
+format-packetloss-underline = ${palette_mai.purple}
+format-disconnected-padding = 2
+format-connected-padding = 2
+format-packetloss-padding = 2
 
-label-focused-padding = 2
-label-unfocused-padding = 2
-label-urgent-padding = 2
+[module/wired-network]
+type = internal/network
+interface = enp0s3
+interval = 2.0
+format-disconnected = 
+format-connected =  
+format-packetloss =  
+;label-connected = %upspeed% %downspeed%
+format-disconnected-underline = ${palette_mai.purple}
+format-connected-underline = ${palette_mai.purple}
+format-packetloss-underline = ${palette_mai.purple}
+format-disconnected-padding = 1
+format-connected-padding = 1
+format-packetloss-padding = 1
 
+[module/pulseaudio]
+type = internal/pulseaudio
+sink = alsa_output.pci-0000_00_05.0.analog-stereo
+use-ui-max = true
+interval = 5
+format-muted = <label-muted>
+format-volume = <ramp-volume> <label-volume>
+label-volume = %percentage%%
+label-muted = 
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+format-volume-underline = ${palette_mai.purple}
+label-muted-underline = ${palette_mai.purple}
+format-volume-padding = 1
+label-muted-padding = 1
 
+[module/date]
+type = internal/date
+interval = 1.0
+time = %I:%M %p
+date = %m/%d
+format = <label>
+label = %date% %time%
+label-font = 1
+label-underline = ${palette_mai.purple}
+format-underline = ${palette_mai.purple}
+label-padding = 1
 
+[module/playing]
+type = custom/script
+exec = "bash $HOME/.scripts/polybar/playing.sh"
+interval = 1
+format-underline = ${palette_mai.purple}
+format-padding = 1
