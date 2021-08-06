@@ -8,6 +8,7 @@ xorg-server
 xorg-xinput
 xorg-xrandr
 xorg-xinit: startx to window manager from terminal
+xorg-mkfontscale: japanese font support
 # xorg-xev
 grub: boot loader
 # efibootmgr: efi boot manager for dual boot
@@ -69,3 +70,8 @@ discord
 gimp
 flameshot: screenshot
 # steam
+
+Fonts ---------------------------------------------
+
+ttf-koruri: j
+ttf-vlgothic: j

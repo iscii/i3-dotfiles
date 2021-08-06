@@ -1,20 +1,20 @@
 font:
   normal:
-    family: Source Code Pro
+    family: Lotuscoder
     style: Regular
   bold:
-    family: Source Code Pro
+    family: Lotuscoder
     style: Bold
   italic:
-    family: Source Code Pro
+    family: Lotuscoder
     style: Italic
   bold_italic:
-    family: Source Code Pro
+    family: Lotuscoder
     style: Bold Italic
-  size: 10
+  size: 11
 window:
   padding:
     x: 4
     y: 4
 
-background_opacity: 0.4
+background_opacity: 0.0

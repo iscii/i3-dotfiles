@@ -6,10 +6,10 @@
 [[ $- != *i* ]] && return
 
 # neofetch on shell start
-if ls /bin | grep neofetch > /dev/null;
-then
-  neofetch
-fi
+# if ls /bin | grep neofetch > /dev/null;
+# then
+#   neofetch
+# fi
 
 # source complete_alias
 . /usr/share/bash-complete-alias/complete_alias

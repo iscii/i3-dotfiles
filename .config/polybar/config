@@ -12,9 +12,10 @@ transparent = #00000000
 red = #ff0000
 
 [bar/main]
-font-0 = "Source Code Pro:size=10"
-font-1 = "Font Awesome 5 Brands:pixelsize=10"
-font-2 = "Font Awesome 5 Free:pixelsize=10"
+font-0 = "Lotuscoder:weight=bold:size=11;0"
+font-1 = "Font Awesome 5 Brands:pixelsize=11;1"
+font-2 = "Font Awesome 5 Free:pixelsize=11;1"
+font-4 = "Source Code Pro:weight=bold:size=11;0"
 height = 24
 radius = 2
 fixed-center = false
@@ -23,8 +24,10 @@ line-size = 3
 line-color = ${palette_mai.purple}
 border-color = ${colors.transparent}
 border-top-size = 10
+;border-bottom-size = 10
 padding = 0
 tray-position = none
+;bottom = true
 cursor-click = pointer
 ;monitor = ${env:MONITOR:HDMI-1}
 
@@ -55,7 +58,7 @@ modules-center = playing
 inherit = bar/main
 width = 30%
 foreground = ${palette_mai.light_purple}
-offset-x = 69.2%
+offset-x = 69.1%
 override-redirect = true
 wm-restack = i3
 modules-right = wired-network pulseaudio date
@@ -112,7 +115,7 @@ type = internal/network
 interface = enp0s3
 interval = 2.0
 format-disconnected = 
-format-connected =  
+format-connected = 
 format-packetloss =  
 ;label-connected = %upspeed% %downspeed%
 format-disconnected-underline = ${palette_mai.purple}

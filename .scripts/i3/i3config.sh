@@ -201,6 +201,9 @@ options="${options}for_window [window_type=\"menu\"] floating enable\n"
 # Hide borders
 options="${options}hide_edge_borders both\n"
 
+# Hide edges
+options="${options}for_window [class="^.*"] border pixel 0\n"
+
 # Host-specific settings
 if [ "$hostname" == "iZArchVM" ]; then
     # Mount shared folder
@@ -222,10 +225,11 @@ if [ "$hostname" == "iZArchVM" ]; then
 fi
 if [ "$hostname" == "iZArchG14" ]; then
   # Use pactl to adjust volume in pulseaudio
-    options="${options}bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%%\n" # [Vol Up Key]
-    options="${options}bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%%\n" # [Vol Down Key]
-    options="${options}bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle\n" # [Fn+F1]
-    options="${options}bindsym XF86AudioMicMute exec bash $HOME/.scripts/i3/$hostname/mic.sh\n" # [Mic Mute Key]
+    refresh_i3status="killall -SIGUSR1 i3status"
+    options="${options}bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%% && $refresh_i3status\n" # [Vol Up Key]
+    options="${options}bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%% && $refresh_i3status\n" # [Vol Down Key]
+    options="${options}bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status\n" # [Fn+F1]
+    options="${options}bindsym XF86AudioMicMute exec bash $HOME/.scripts/i3/$hostname/mic.sh && $refresh_i3status\n" # [Mic Mute Key]
   
     # Use playerctl for player controls
     options="${options}bindsym XF86AudioPrev exec playerctl previous\n" # [Fn+F2]
