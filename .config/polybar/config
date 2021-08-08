@@ -12,6 +12,7 @@ transparent = #00000000
 red = #ff0000
 
 [bar/main]
+;switch to siji for some nicer icons 
 font-0 = "Lotuscoder:weight=bold:size=11;0"
 font-1 = "Font Awesome 5 Brands:pixelsize=11;1"
 font-2 = "Font Awesome 5 Free:pixelsize=11;1"
@@ -23,7 +24,7 @@ background = ${colors.transparent}
 line-size = 3
 line-color = ${palette_mai.purple}
 border-color = ${colors.transparent}
-border-top-size = 10
+;border-top-size = 10
 ;border-bottom-size = 10
 padding = 0
 tray-position = none
@@ -31,39 +32,63 @@ tray-position = none
 cursor-click = pointer
 ;monitor = ${env:MONITOR:HDMI-1}
 
-;placeholds bar space for i3 so other bars can override-redirect
-[bar/placeholder]
+;placeholds bar space for i3 so other bars can override-redirect. setting wm-restack to i3 will sort this bar over the others, disabling mouse interaction.
+[bar/placeholder_top]
 inherit = bar/main
 width = 100%
-modules-center = placeholder
+border-top-size = 10
+modules-center = placeholder_top
+
+[bar/placeholder_bottom]
+inherit = bar/main
+width = 100%
+border-bottom-size = 10
+bottom = true
+modules-center = placeholder_bottom
+
+[bar/playing]
+inherit = bar/main
+width = 40%
+border-top-size = 10
+foreground = ${palette_mai.light_purple}
+;if width's tens digit is even, set to 30%, else 35%
+offset-x = 30%
+override-redirect = true
+modules-center = playing
+
+[bar/system]
+inherit = bar/main
+width = 30%
+border-top-size = 10
+foreground = ${palette_mai.light_purple}
+offset-x = 69.1%
+override-redirect = true
+modules-right = cpu memory
 
 [bar/ws]
 inherit = bar/main
 width = 25%
+border-bottom-size = 10
+bottom = true
 offset-x = 0.9%
 override-redirect = true
-wm-restack = i3
 modules-left = ws
-
-[bar/playing]
-inherit = bar/main
-width = 20%
-foreground = ${palette_mai.light_purple}
-offset-x = 40%
-override-redirect = true
-wm-restack = i3
-modules-center = playing
 
 [bar/widgets]
 inherit = bar/main
-width = 30%
+;locale = ja_JP.UTF-8
+width = 40%
+border-bottom-size = 10
+bottom = true
 foreground = ${palette_mai.light_purple}
-offset-x = 69.1%
+offset-x = 59.1%
 override-redirect = true
-wm-restack = i3
 modules-right = wired-network pulseaudio date
 
-[module/placeholder]
+[module/placeholder_top]
+type = custom/script
+
+[module/placeholder_bottom]
 type = custom/script
 
 [module/ws]
@@ -95,6 +120,44 @@ label-focused-padding = 1
 label-unfocused-padding = 1
 label-urgent-padding = 1
 
+[module/cpu]
+type = internal/cpu
+interval = 2
+format =  <label>
+label = %percentage%%
+format-padding = 1
+format-underline = ${palette_mai.purple}
+
+[module/memory]
+type = internal/memory
+interval = 2
+format =  <label>
+label = %mb_used% / %mb_total%
+;label = %gb_used% / %gb_total%
+format-underline = ${palette_mai.purple}
+format-padding = 1
+
+[module/battery]
+type = internal/battery
+;full-at = 99
+;ls -l /sys/class/power_supply
+;battery = BAT0
+;adapter = ADP1
+poll-interval = 5
+time-format = %H:%M
+format-charging = <ramp-capacity> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
+label-charging = %percentage%% %time%
+label-discharging = %percentage%% %time%
+label-full = %percentage%% %time%
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ 
+
 [module/wireless-network]
 type = internal/network
 interface = wlan0
@@ -115,7 +178,8 @@ type = internal/network
 interface = enp0s3
 interval = 2.0
 format-disconnected = 
-format-connected = 
+; the fontawesome ethernet icon looks bad
+format-connected = 
 format-packetloss =  
 ;label-connected = %upspeed% %downspeed%
 format-disconnected-underline = ${palette_mai.purple}
@@ -146,10 +210,9 @@ label-muted-padding = 1
 type = internal/date
 interval = 1.0
 time = %I:%M %p
-date = %m/%d
+date = %a %m/%d
 format = <label>
 label = %date% %time%
-label-font = 1
 label-underline = ${palette_mai.purple}
 format-underline = ${palette_mai.purple}
 label-padding = 1
@@ -160,3 +223,4 @@ exec = "bash $HOME/.scripts/polybar/playing.sh"
 interval = 1
 format-underline = ${palette_mai.purple}
 format-padding = 1
+

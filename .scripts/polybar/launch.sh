@@ -9,9 +9,11 @@ while prgrep -u $UID -x polybar > /dev/null; do
 done
 
 # Launch Polybar
-polybar placeholder &
-polybar ws &
+polybar placeholder_top &
+polybar placeholder_bottom &
 polybar playing &
+polybar system &
+polybar ws &
 polybar widgets &
 
 echo "Polybar launched"

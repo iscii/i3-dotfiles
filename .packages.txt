@@ -26,6 +26,10 @@ nvidia-utils: nvidia utilities
 bash-complete-alias: bash completion for aliases (git dotfiles)
 mesa-demos: glxinfo
 playerctl: player controller
+fcitx: language input method backend
+fcitx5-mocz: japanese ime
+fcitx5-configtool: fcitx config tool
+fcitx5-gtk: gtk input method module for fcitx
 
 [vm] 
 virtualbox-guest-utils: virtualbox drivers

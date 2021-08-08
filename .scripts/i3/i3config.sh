@@ -11,6 +11,19 @@ browser="firefox"
 painter="gimp"
 screenshot="flameshot"
 
+# Colors
+gray="#70727f"
+light_Gray="bab9c2"
+blue_purple="#495c97"
+purple="#a6a8d9"
+light_purple="#d6afb4"
+dark_pink="#d6afb4"
+pink="#efd7d1"
+
+red="#ff0000"
+white="#ffffff"
+black="#000000"
+
 # Settings
 ws1="1"
 ws2="2"
@@ -184,8 +197,8 @@ if [ $use_gaps ]; then
     options="${options}gaps outer $gaps_outer\n"
 fi
 
-# Disable title bars
-options="${options}for_window [class=\"^.*\"] border pixel 1\n"
+# Disable title bars & border size
+options="${options}for_window [class=\"^.*\"] border pixel 2\n"
 
 # Float specific applications
 # options="${options}for_window [class=\"<App Class>\"] floating enable\n"
@@ -199,10 +212,14 @@ options="${options}for_window [window_type=\"dialog\"] floating enable\n"
 options="${options}for_window [window_type=\"menu\"] floating enable\n"
 
 # Hide borders
-options="${options}hide_edge_borders both\n"
+# options="${options}hide_edge_borders both\n"
 
-# Hide edges
-options="${options}for_window [class="^.*"] border pixel 0\n"
+# Window colors
+# <class> <borders> <bg> <text> <indicator> <child_borders>
+options="${options}client.unfocused $blue_purple $blue_purple $white $blue_purple\n"
+options="${options}client.focused_inactive $purple $purple $white $blue_purple\n"
+options="${options}client.focused $purple $purple $white $purple\n"
+options="${options}client.urgent $red $red $white $purple\n"
 
 # Host-specific settings
 if [ "$hostname" == "iZArchVM" ]; then
@@ -266,9 +283,11 @@ options="${options}bindsym \$mod+Shift+p exec $screenshot\n"
 # Set wallpaper on startup
 options="${options}exec_always feh --bg-scale $HOME/Pictures/wallpapers/wallpaper.png\n"
 # Start picom
-options="${options}exec picom -CGb\n"
+options="${options}exec_always picom -CGb\n"
 # Start polybar
 options="${options}exec_always --no-startup-id bash $HOME/.scripts/polybar/launch.sh\n"
+# Start fcitx
+options="${options}exec --no-startup-id fcitx5 -d\n"
 
 # Create and write to config file
 printf "$options%s" > "$cfg_file" # Invalid format errors are caused by stray % (indicator) signs. make them %%.
