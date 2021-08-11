@@ -4,6 +4,10 @@ player_status=$(playerctl status 2> /dev/null)
 # if exit code ($?) is 0, player is playing
 if [[ $? -eq 0 ]]; then
     metadata="$(playerctl metadata artist) - $(playerctl metadata title)"
+    
+    if [[ $(echo $metadata | wc -c) -gt 40 ]]; then
+        metadata=$(echo $metadata | cut -c1-46)"..."
+    fi
 fi
 
 if [[ $player_status = "Playing" ]]; then

@@ -1,6 +1,6 @@
-.config/discord
-.config/GIMP
-.config/spotify
+.config/discord/
+.config/GIMP/
+.config/spotify/
 .local/share/gegl-0.4
 .local/share/ranger
 .local/share/recently-used.xbel

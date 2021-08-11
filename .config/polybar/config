@@ -1,3 +1,4 @@
+;mai & (upcoming) shinobu theme
 [palette_mai]
 gray = #70727f
 light_gray = #bab9c2
@@ -45,6 +46,16 @@ width = 100%
 border-bottom-size = 10
 bottom = true
 modules-center = placeholder_bottom
+
+; not in use
+[bar/cava]
+inherit = bar/main
+width = 20%
+border-top-size = 10
+foreground = ${palette_mai.light_purple}
+offset-x = 0.9%
+override-redirect = true
+modules-left = cava 
 
 [bar/playing]
 inherit = bar/main
@@ -157,7 +168,6 @@ ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
  
-
 [module/wireless-network]
 type = internal/network
 interface = wlan0
@@ -221,6 +231,18 @@ label-padding = 1
 type = custom/script
 exec = "bash $HOME/.scripts/polybar/playing.sh"
 interval = 1
+format = <label>
+label = %output%
+format-underline = ${palette_mai.purple}
+format-padding = 1
+
+; works, but the script is super unoptimized and uses too much processing power. will not use for now
+[module/cava]
+type = custom/script
+tail = true
+exec = "bash $HOME/.scripts/polybar/cava.sh"
+format = <label>
+label = %output%
 format-underline = ${palette_mai.purple}
 format-padding = 1
 

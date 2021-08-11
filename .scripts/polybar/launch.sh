@@ -11,6 +11,7 @@ done
 # Launch Polybar
 polybar placeholder_top &
 polybar placeholder_bottom &
+# polybar cava &
 polybar playing &
 polybar system &
 polybar ws &

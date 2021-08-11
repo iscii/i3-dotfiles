@@ -30,6 +30,10 @@ fcitx: language input method backend
 fcitx5-mocz: japanese ime
 fcitx5-configtool: fcitx config tool
 fcitx5-gtk: gtk input method module for fcitx
+fftw: [r: cava]
+ncurses: [r: cava]
+ini-parser: [r: cava]
+alsa-lib: alsa library [r: cava]
 
 [vm] 
 virtualbox-guest-utils: virtualbox drivers
@@ -63,6 +67,7 @@ rofi: menu
 lxappearance: theme manager
 picom: compositor for window customization and transparency
 polybar: status bar
+cava: audio visualizer
 
 Apps ---------------------------------------------
 
