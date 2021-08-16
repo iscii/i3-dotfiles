@@ -19,6 +19,10 @@ alias ls='ls --color=auto'
 # primary prompt char
 PS1='[\u@\h \W]\$ '
 
+# set default editors
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
 # dotfiles repo config alias
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 complete -F _complete_alias config

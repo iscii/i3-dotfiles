@@ -1,7 +1,7 @@
 System -------------------------------------------
 
 base
-base-devel (group): a bunch of base tools
+# base-devel (group): a bunch of base tools
 linux
 linux-firmware
 xorg-server
@@ -11,18 +11,18 @@ xorg-xinit: startx to window manager from terminal
 xorg-mkfontscale: japanese font support
 # xorg-xev
 grub: boot loader
-# efibootmgr: efi boot manager for dual boot
-# os-prober: utility to detect other OSs for dual boot
+efibootmgr: efi boot manager for dual boot
+os-prober: utility to detect other OSs for dual boot
 pulseaudio: audio driver
-# pulseaudio-alsa: pulseaudio to support bluez
-# pulseaudio-bluetooth: pulseaudio to support bluez
-# bluez: bluetooth driver
-# bluez-utils: bluez utilites
-# xf86-input-libinput: input library for xorg; managing input devices
+pulseaudio-alsa: pulseaudio to support bluez
+pulseaudio-bluetooth: pulseaudio to support bluez
+bluez: bluetooth driver
+bluez-utils: bluez utilites
+xf86-input-libinput: input library for xorg; managing input devices
 networkmanager: network daemon
-nvidia: nvidia drivers for standard linux
+# nvidia: nvidia drivers for standard linux
 nvidia-utils: nvidia utilities
-# nvidia-settings
+nvidia-settings
 bash-complete-alias: bash completion for aliases (git dotfiles)
 mesa-demos: glxinfo
 playerctl: player controller
@@ -30,20 +30,16 @@ fcitx: language input method backend
 fcitx5-mocz: japanese ime
 fcitx5-configtool: fcitx config tool
 fcitx5-gtk: gtk input method module for fcitx
-fftw: [r: cava]
-ncurses: [r: cava]
-ini-parser: [r: cava]
-alsa-lib: alsa library [r: cava]
 
 [vm] 
-virtualbox-guest-utils: virtualbox drivers
+# virtualbox-guest-utils: virtualbox drivers
 
 [g14]    
-# linux-g14
-# linux-g14-headers
-# nvidia-dkms: nvidia drivers for custom kernels (linux-g14)
-# brightnessctl: brightness controller
-# asusctl
+linux-g14
+linux-g14-headers
+nvidia-dkms: nvidia drivers for custom kernels (linux-g14)
+brightnessctl: brightness controller
+asusctl
 
 Tools --------------------------------------------
 
@@ -52,8 +48,10 @@ expac: pacman database extraction util [r: packer]
 wget: tool to retrieve files from the web [r: packer]
 git: version control util [r: packer]
 jshon [u]: json parser for shell [r: packer]
+fakeroot: installer container [r:packer]
 unzip: unzipper
 xbindkeys: get key code
+neofetch
 
 Interface ----------------------------------------
 
@@ -66,8 +64,9 @@ dunst: notification manager
 rofi: menu
 lxappearance: theme manager
 picom: compositor for window customization and transparency
+feh: wallpaper manager
 polybar: status bar
-cava: audio visualizer
+# cava: audio visualizer
 
 Apps ---------------------------------------------
 

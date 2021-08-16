@@ -84,19 +84,27 @@ client.unfocused #495c97 #495c97 #ffffff #495c97
 client.focused_inactive #a6a8d9 #a6a8d9 #ffffff #495c97
 client.focused #a6a8d9 #a6a8d9 #ffffff #a6a8d9
 client.urgent #ff0000 #ff0000 #ffffff #a6a8d9
-exec_always xrandr --output Virtual1 --mode 1280x720
-bindsym F12 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
-bindsym F11 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
-bindsym F10 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym F7 exec playerctl previous
-bindsym F8 exec playerctl play-pause
-bindsym F9 exec playerctl next
+bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -i 5
+bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 5
+bindsym XF86AudioMute exec --no-startup-id pamixer -t
+#bindsym XF86AudioMicMute exec bash /home/iscii/.scripts/i3/iZArchG14/mic.sh
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86Launch4 exec sudo asusctl profile -n
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86KbdBrightnessUp exec brightnessctl -d asus::kbd_backlight set +1
+bindsym XF86KbdBrightnessDown exec brightnessctl -d asus::kbd_backlight set 1-
+#bindsym XF86TouchpadToggle exec back /home/iscii/.scripts/i3/iZArchG14/touchpad.sh
+bindsym $mod+p exec <app>
+#bindsym XF86Launch1 exec <app>
+exec_always picom --experimental-backends
 bindsym $mod+d exec "rofi -modi drun,run -show drun"
 bindsym $mod+Return exec alacritty
 bindsym $mod+f exec firefox
 bindsym $mod+g exec gimp
-bindsym $mod+Shift+p exec flameshot
+bindsym $mod+shift+s exec flameshot gui
 exec_always feh --bg-scale /home/iscii/Pictures/wallpapers/wallpaper.png
-exec_always picom -CGb
 exec_always --no-startup-id bash /home/iscii/.scripts/polybar/launch.sh
 exec --no-startup-id fcitx5 -d

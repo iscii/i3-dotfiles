@@ -1,0 +1,2 @@
+evdev:input:b0003v0B05p1866*
+  KEYBOARD_KEY_ff31007c=f20 # x11 mic-mute; NEEDS TO HAVE TWO EMPTY SPACES BEFORE IT. A tab doesn't work fsr.

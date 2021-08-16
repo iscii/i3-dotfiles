@@ -21,7 +21,7 @@ font-4 = "Source Code Pro:weight=bold:size=11;0"
 height = 24
 radius = 2
 fixed-center = false
-background = ${colors.transparent}
+background = ${colors.transparent} 
 line-size = 3
 line-color = ${palette_mai.purple}
 border-color = ${colors.transparent}
@@ -94,7 +94,7 @@ bottom = true
 foreground = ${palette_mai.light_purple}
 offset-x = 59.1%
 override-redirect = true
-modules-right = wired-network pulseaudio date
+modules-right = battery wireless-network pulseaudio date
 
 [module/placeholder_top]
 type = custom/script
@@ -152,8 +152,8 @@ format-padding = 1
 type = internal/battery
 ;full-at = 99
 ;ls -l /sys/class/power_supply
-;battery = BAT0
-;adapter = ADP1
+battery = BAT0
+adapter = AC0
 poll-interval = 5
 time-format = %H:%M
 format-charging = <ramp-capacity> <label-charging>
@@ -167,21 +167,27 @@ ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
+format-charging-underline =${palette_mai.purple}
+format-discharging-underline =${palette_mai.purple}
+format-full-underline =${palette_mai.purple}
+format-charging-padding = 1
+format-discharging-padding = 1
+format-full-padding = 1
  
 [module/wireless-network]
 type = internal/network
-interface = wlan0
+interface = wlp2s0
 interval = 2.0
 format-disconnected = 
 format-connected =   <label-connected>
 format-packetloss =  <label-connected>
-label-connected = %ifname%
+label-connected = %essid%
 format-disconnected-underline = ${palette_mai.purple}
 format-connected-underline = ${palette_mai.purple}
 format-packetloss-underline = ${palette_mai.purple}
-format-disconnected-padding = 2
-format-connected-padding = 2
-format-packetloss-padding = 2
+format-disconnected-padding = 1
+format-connected-padding = 1
+format-packetloss-padding = 1
 
 [module/wired-network]
 type = internal/network

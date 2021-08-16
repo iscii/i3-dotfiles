@@ -9,7 +9,7 @@ menu="rofi -modi drun,run -show drun"
 terminal="alacritty"
 browser="firefox"
 painter="gimp"
-screenshot="flameshot"
+screenshot="flameshot gui"
 
 # Colors
 gray="#70727f"
@@ -239,14 +239,16 @@ if [ "$hostname" == "iZArchVM" ]; then
     options="${options}bindsym F7 exec playerctl previous\n"
     options="${options}bindsym F8 exec playerctl play-pause\n"
     options="${options}bindsym F9 exec playerctl next\n"
+
+    # Start picom
+    options="${options}exec_always picom -CGb\n"
 fi
 if [ "$hostname" == "iZArchG14" ]; then
   # Use pactl to adjust volume in pulseaudio
-    refresh_i3status="killall -SIGUSR1 i3status"
-    options="${options}bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%% && $refresh_i3status\n" # [Vol Up Key]
-    options="${options}bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%% && $refresh_i3status\n" # [Vol Down Key]
-    options="${options}bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status\n" # [Fn+F1]
-    options="${options}bindsym XF86AudioMicMute exec bash $HOME/.scripts/i3/$hostname/mic.sh && $refresh_i3status\n" # [Mic Mute Key]
+    options="${options}bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -i 5\n" # [Vol Up Key]
+    options="${options}bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 5\n" # [Vol Down Key]
+    options="${options}bindsym XF86AudioMute exec --no-startup-id pamixer -t\n" # [Fn+F1]
+    options="${options}bindsym XF86AudioMicMute exec bash $HOME/.scripts/i3/$hostname/mic.sh\n" # [Mic Mute Key]
   
     # Use playerctl for player controls
     options="${options}bindsym XF86AudioPrev exec playerctl previous\n" # [Fn+F2]
@@ -270,6 +272,9 @@ if [ "$hostname" == "iZArchG14" ]; then
     # Unused keybinds 
     options="${options}bindsym \$mod+p exec <app>\n" # [Fn+F9]
     options="${options}bindsym XF86Launch1 exec <app>\n" # [ROG Key]
+
+    # Start picom with experimental backends
+    options="${options}exec_always picom --experimental-backends\n"
 fi
 
 # Application keybinds
@@ -277,13 +282,11 @@ options="${options}bindsym \$mod+d exec \"$menu\"\n"
 options="${options}bindsym \$mod+Return exec $terminal\n"
 options="${options}bindsym \$mod+f exec $browser\n"
 options="${options}bindsym \$mod+g exec $painter\n"
-options="${options}bindsym \$mod+Shift+p exec $screenshot\n"
+options="${options}bindsym \$mod+shift+s exec $screenshot\n"
 
 # Startup commands
 # Set wallpaper on startup
 options="${options}exec_always feh --bg-scale $HOME/Pictures/wallpapers/wallpaper.png\n"
-# Start picom
-options="${options}exec_always picom -CGb\n"
 # Start polybar
 options="${options}exec_always --no-startup-id bash $HOME/.scripts/polybar/launch.sh\n"
 # Start fcitx
