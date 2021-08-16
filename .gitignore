@@ -4,6 +4,7 @@
 .config/ibus/
 .config/mozc/
 .config/pulse/
+.systemfiles
 .local/share/gegl-0.4
 .local/share/ranger
 .local/share/recently-used.xbel
