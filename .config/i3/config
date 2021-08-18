@@ -69,8 +69,10 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 assign [class="Alacritty"] 1
 assign [class="firefox"] 2
-for_window [class="Spotify"] move to workspace 3
-assign [class="discord"] 4
+assign [class="discord"] 3
+assign [class="PortalWars-Linux-Shipping"] 4
+assign [class="Steam"] 5
+for_window [class="Spotify"] move to workspace 6
 gaps inner 10
 gaps outer 0
 for_window [class="^.*"] border pixel 2

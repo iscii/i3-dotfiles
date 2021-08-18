@@ -38,8 +38,10 @@ ws9="9"
 ws10="10"
 ws1app="Alacritty"
 ws2app="firefox"
-ws3app="Spotify"
-ws4app="discord"
+ws3app="discord"
+ws4app="PortalWars-Linux-Shipping"
+ws5app="Steam"
+# ws6 is reserved for spotify
 gaps_inner=10
 gaps_outer=0
 
@@ -189,8 +191,10 @@ options="${options}bindsym \$mod+Shift+0 move container to workspace $ws10\n"
 # Assign applications to workspaces
 options="${options}assign [class=\"$ws1app\"] $ws1\n"
 options="${options}assign [class=\"$ws2app\"] $ws2\n"
-options="${options}for_window [class=\"$ws3app\"] move to workspace $ws3\n" # Spotify
+options="${options}assign [class=\"$ws3app\"] $ws3\n"
 options="${options}assign [class=\"$ws4app\"] $ws4\n"
+options="${options}assign [class=\"$ws5app\"] $ws5\n"
+options="${options}for_window [class=\"Spotify\"] move to workspace $ws6\n" # Spotify
 
 # Running with i3-gaps
 if [ $use_gaps ]; then
