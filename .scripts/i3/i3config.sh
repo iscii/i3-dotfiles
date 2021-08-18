@@ -65,7 +65,7 @@ options="${options}set \$mod Mod4\n"
 options="${options}font pango:Source Code Pro 8\n"
 
 # Use xss-lock to grab a logind suspend inhibit lock. i3lock locks screen before suspend
-# options="${options}exec --no-startup-id xss-lock -n 'bash $HOME/.scripts/i3/lock.sh'\n"
+# options="${options}exec --no-startup-id xss-lock -- $HOME/.scripts/i3/xss-lock.sh\n"
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 options="${options}floating_modifier \$mod\n"

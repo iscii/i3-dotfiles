@@ -29,6 +29,7 @@ fcitx: language input method backend
 fcitx5-mocz: japanese ime
 fcitx5-configtool: fcitx config tool
 fcitx5-gtk: gtk input method module for fcitx
+xss-lock: session lock manager
 
 [vm] 
 # virtualbox-guest-utils: virtualbox drivers

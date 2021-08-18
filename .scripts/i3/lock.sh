@@ -13,7 +13,6 @@ t="#00000000"
 font="Lotuscoder"
 
 i3lock \
-    -n \
     -B sigma \
     -k \
     --keyhl-color=$pu \
