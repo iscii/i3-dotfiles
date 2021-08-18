@@ -297,7 +297,7 @@ options="${options}exec_always feh --bg-scale $HOME/Pictures/wallpapers/wallpape
 # Start polybar
 options="${options}exec_always --no-startup-id bash $HOME/.scripts/polybar/launch.sh\n"
 # Start fcitx
-# options="${options}exec --no-startup-id fcitx5 -d\n"
+options="${options}exec --no-startup-id fcitx5 -d\n"
 
 # Create and write to config file
 printf "$options%s" > "$cfg_file" # Invalid format errors are caused by stray % (indicator) signs. make them %%.

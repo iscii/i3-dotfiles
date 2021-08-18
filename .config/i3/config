@@ -108,3 +108,4 @@ bindsym $mod+g exec gimp
 bindsym $mod+shift+s exec flameshot gui
 exec_always feh --bg-scale /home/iscii/Pictures/wallpapers/wallpaper.png
 exec_always --no-startup-id bash /home/iscii/.scripts/polybar/launch.sh
+exec --no-startup-id fcitx5 -d
