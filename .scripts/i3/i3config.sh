@@ -13,7 +13,7 @@ screenshot="flameshot gui"
 
 # Colors
 gray="#70727f"
-light_Gray="bab9c2"
+light_gray="bab9c2"
 blue_purple="#495c97"
 purple="#a6a8d9"
 light_purple="#d6afb4"
@@ -22,6 +22,7 @@ pink="#efd7d1"
 
 red="#ff0000"
 white="#ffffff"
+almost_white_1="#eeeeee"
 black="#000000"
 
 # Settings
@@ -64,7 +65,7 @@ options="${options}set \$mod Mod4\n"
 options="${options}font pango:Source Code Pro 8\n"
 
 # Use xss-lock to grab a logind suspend inhibit lock. i3lock locks screen before suspend
-# options="${options}exec --no-startup-id xss-lock --transfer-sleep-lock --i3lock --nofork\n"
+# options="${options}exec --no-startup-id xss-lock -n 'bash $HOME/.scripts/i3/lock.sh'\n"
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 options="${options}floating_modifier \$mod\n"
@@ -138,7 +139,7 @@ options="${options}bindsym \$mod+Shift+r restart\n"
 options="${options}bindsym \$mod+Shift+e exec \"i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'\"\n"
 
 # Lock session
-options="${options}bindsym \$mod+Shift+x exec i3lock\n"
+options="${options}bindsym \$mod+Shift+x exec bash $HOME/.scripts/i3/lock.sh\n"
 
 # Resize window (you can also use the mouse for that)
 options="${options}mode resize {\n"
@@ -216,9 +217,9 @@ options="${options}for_window [window_type=\"menu\"] floating enable\n"
 
 # Window colors
 # <class> <borders> <bg> <text> <indicator> <child_borders>
-options="${options}client.unfocused $blue_purple $blue_purple $white $blue_purple\n"
-options="${options}client.focused_inactive $purple $purple $white $blue_purple\n"
-options="${options}client.focused $purple $purple $white $purple\n"
+options="${options}client.unfocused $blue_purple $blue_purple $almost_white_1 $blue_purple\n"
+options="${options}client.focused_inactive $purple $purple $black $blue_purple\n"
+options="${options}client.focused $purple $purple $black $purple\n"
 options="${options}client.urgent $red $red $white $purple\n"
 
 # Host-specific settings
@@ -263,15 +264,17 @@ if [ "$hostname" == "iZArchG14" ]; then
     options="${options}bindsym XF86MonBrightnessDown exec brightnessctl set 5%%-\n" # [Fn+F8]
   
     # Use brightnessctl to adjust keyboard brightness
-    options="${options}bindsym XF86KbdBrightnessUp exec brightnexxctl -d asus::kbd_backlight set +1\n" # [Fn+Up]
+    options="${options}bindsym XF86KbdBrightnessUp exec brightnessctl -d asus::kbd_backlight set +1\n" # [Fn+Up]
     options="${options}bindsym XF86KbdBrightnessDown exec brightnessctl -d asus::kbd_backlight set 1-\n" # [Fn+Down]
 
-    # Use xinput to toggle touchpad
-    options="${options}bindsym XF86TouchpadToggle exec back $HOME/.scripts/i3/$hostname/touchpad.sh\n" # [Fn+F10]
- 
+    # Toggle touchpad
+    options="${options}bindsym XF86TouchpadToggle exec bash $HOME/.scripts/i3/$hostname/touchpad.sh\n" # [Fn+F10]
+    
+    # Toggle bluetooth 
+    options="${options}bindsym \$mod+p exec bash $HOME/.scripts/i3/$hostname/bluetoothtoggle.sh\n" # [Fn+F9]
+    
     # Unused keybinds 
-    options="${options}bindsym \$mod+p exec <app>\n" # [Fn+F9]
-    options="${options}bindsym XF86Launch1 exec <app>\n" # [ROG Key]
+    # options="${options}bindsym XF86Launch1 exec <app>\n" # [ROG Key]
 
     # Start picom with experimental backends
     options="${options}exec_always picom --experimental-backends\n"
@@ -290,7 +293,7 @@ options="${options}exec_always feh --bg-scale $HOME/Pictures/wallpapers/wallpape
 # Start polybar
 options="${options}exec_always --no-startup-id bash $HOME/.scripts/polybar/launch.sh\n"
 # Start fcitx
-options="${options}exec --no-startup-id fcitx5 -d\n"
+# options="${options}exec --no-startup-id fcitx5 -d\n"
 
 # Create and write to config file
 printf "$options%s" > "$cfg_file" # Invalid format errors are caused by stray % (indicator) signs. make them %%.

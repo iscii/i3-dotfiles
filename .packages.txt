@@ -1,7 +1,7 @@
 System -------------------------------------------
 
 base
-# base-devel (group): a bunch of base tools
+base-devel (group): a bunch of base tools
 linux
 linux-firmware
 xorg-server
@@ -9,7 +9,7 @@ xorg-xinput
 xorg-xrandr
 xorg-xinit: startx to window manager from terminal
 xorg-mkfontscale: japanese font support
-# xorg-xev
+xorg-xmodmap: keymapper
 grub: boot loader
 efibootmgr: efi boot manager for dual boot
 os-prober: utility to detect other OSs for dual boot
@@ -20,7 +20,6 @@ bluez: bluetooth driver
 bluez-utils: bluez utilites
 xf86-input-libinput: input library for xorg; managing input devices
 networkmanager: network daemon
-# nvidia: nvidia drivers for standard linux
 nvidia-utils: nvidia utilities
 nvidia-settings
 bash-complete-alias: bash completion for aliases (git dotfiles)
@@ -48,7 +47,6 @@ expac: pacman database extraction util [r: packer]
 wget: tool to retrieve files from the web [r: packer]
 git: version control util [r: packer]
 jshon [u]: json parser for shell [r: packer]
-fakeroot: installer container [r:packer]
 unzip: unzipper
 xbindkeys: get key code
 neofetch
@@ -56,14 +54,15 @@ neofetch
 Interface ----------------------------------------
 
 i3 (group): window manager
-  i3-gaps
-  i3blocks
-  i3lock
-  i3status
+    i3-gaps
+    i3blocks
+    i3lock
+    i3lock-color
+    i3status
 dunst: notification manager
 rofi: menu
 lxappearance: theme manager
-picom: compositor for window customization and transparency
+picom-git: compositor for window customization and transparency
 feh: wallpaper manager
 polybar: status bar
 # cava: audio visualizer

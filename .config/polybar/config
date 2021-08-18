@@ -33,29 +33,15 @@ tray-position = none
 cursor-click = pointer
 ;monitor = ${env:MONITOR:HDMI-1}
 
-;placeholds bar space for i3 so other bars can override-redirect. setting wm-restack to i3 will sort this bar over the others, disabling mouse interaction.
-[bar/placeholder_top]
-inherit = bar/main
-width = 100%
-border-top-size = 10
-modules-center = placeholder_top
-
-[bar/placeholder_bottom]
-inherit = bar/main
-width = 100%
-border-bottom-size = 10
-bottom = true
-modules-center = placeholder_bottom
-
 ; not in use
-[bar/cava]
-inherit = bar/main
-width = 20%
-border-top-size = 10
-foreground = ${palette_mai.light_purple}
-offset-x = 0.9%
-override-redirect = true
-modules-left = cava 
+;[bar/cava]
+;inherit = bar/main
+;width = 20%
+;border-top-size = 10
+;foreground = ${palette_mai.light_purple}
+;offset-x = 0.9%
+;override-redirect = true
+;modules-left = cava 
 
 [bar/playing]
 inherit = bar/main
@@ -65,6 +51,7 @@ foreground = ${palette_mai.light_purple}
 ;if width's tens digit is even, set to 30%, else 35%
 offset-x = 30%
 override-redirect = true
+wm-restack = i3
 modules-center = playing
 
 [bar/system]
@@ -74,7 +61,8 @@ border-top-size = 10
 foreground = ${palette_mai.light_purple}
 offset-x = 69.1%
 override-redirect = true
-modules-right = cpu memory
+wm-restack = i3
+modules-right = battery cpu memory
 
 [bar/ws]
 inherit = bar/main
@@ -83,18 +71,34 @@ border-bottom-size = 10
 bottom = true
 offset-x = 0.9%
 override-redirect = true
+wm-restack = i3
 modules-left = ws
 
 [bar/widgets]
 inherit = bar/main
 ;locale = ja_JP.UTF-8
-width = 40%
+width = 40% 
 border-bottom-size = 10
 bottom = true
 foreground = ${palette_mai.light_purple}
-offset-x = 59.1%
+offset-x = 59.7%
 override-redirect = true
-modules-right = battery wireless-network pulseaudio date
+wm-restack = i3
+modules-right = bluetooth wireless-network mic pulseaudio date
+
+;placeholds bar space for i3 so other bars can override-redirect. setting wm-restack to i3 will sort this bar over the others, disabling mouse interaction.
+[bar/placeholder_top]
+inherit = bar/main
+width = 1
+border-top-size = 10
+modules-center = placeholder_top
+
+[bar/placeholder_bottom]
+inherit = bar/main
+width = 1
+border-bottom-size = 10
+bottom = true
+modules-center = placeholder_bottom
 
 [module/placeholder_top]
 type = custom/script
@@ -112,9 +116,9 @@ ws-icon-3 = 4;
 ; i need this to be mai's bunny hairclip
 ws-icon-default =  
 index-sort = true
-enable-click = true
-enable-scroll = true
-wrapping-scroll = true
+;enable-click = true
+;enable-scroll = true
+;wrapping-scroll = true
 format = <label-state> <label-mode>
 label-focused = %icon%
 label-unfocused = %icon%
@@ -143,8 +147,8 @@ format-underline = ${palette_mai.purple}
 type = internal/memory
 interval = 2
 format =  <label>
-label = %mb_used% / %mb_total%
-;label = %gb_used% / %gb_total%
+;label = %mb_used% / %mb_total%
+label = %gb_used% / %gb_total%
 format-underline = ${palette_mai.purple}
 format-padding = 1
 
@@ -156,12 +160,12 @@ battery = BAT0
 adapter = AC0
 poll-interval = 5
 time-format = %H:%M
-format-charging = <ramp-capacity> <label-charging>
+format-charging =  <ramp-capacity> <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
 format-full = <ramp-capacity> <label-full>
 label-charging = %percentage%% %time%
 label-discharging = %percentage%% %time%
-label-full = %percentage%% %time%
+label-full = %percentage%%
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
@@ -179,7 +183,7 @@ type = internal/network
 interface = wlp2s0
 interval = 2.0
 format-disconnected = 
-format-connected =   <label-connected>
+format-connected =  <label-connected>
 format-packetloss =  <label-connected>
 label-connected = %essid%
 format-disconnected-underline = ${palette_mai.purple}
@@ -227,11 +231,30 @@ type = internal/date
 interval = 1.0
 time = %I:%M %p
 date = %a %m/%d
-format = <label>
+format =  <label>
 label = %date% %time%
 label-underline = ${palette_mai.purple}
 format-underline = ${palette_mai.purple}
-label-padding = 1
+format-padding = 1
+label-padding-right = 1
+
+[module/bluetooth]
+type = custom/script
+exec = "bash $HOME/.scripts/polybar/bluetooth.sh"
+interval = 1.0
+format = <label>
+label = %output%
+format-underline = ${palette_mai.purple}
+format-padding = 1
+
+[module/mic]
+type = custom/script
+exec = "bash $HOME/.scripts/polybar/mic.sh"
+interval = 1.0
+format = <label>
+label = %output%
+format-underline = ${palette_mai.purple}
+format-padding = 1
 
 [module/playing]
 type = custom/script
