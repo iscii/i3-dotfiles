@@ -68,7 +68,7 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 assign [class="Alacritty"] 1
-assign [class="firefox"] 2
+assign [class="Brave-browser"] 2
 assign [class="Thunderbird"] 3
 assign [class="discord"] 4
 assign [class="PortalWars-Linux-Shipping"] 5
@@ -105,7 +105,7 @@ exec_always picom --experimental-backends
 bindsym $mod+d exec "rofi -modi drun,run -show drun"
 bindsym Menu exec "rofi -modi drun,run -show drun"
 bindsym $mod+Return exec alacritty
-bindsym $mod+f exec firefox
+bindsym $mod+f exec brave
 bindsym $mod+shift+s exec flameshot gui
 exec_always feh --bg-scale /home/iscii/Pictures/wallpapers/wallpaper.png
 exec_always --no-startup-id bash /home/iscii/.scripts/polybar/launch.sh

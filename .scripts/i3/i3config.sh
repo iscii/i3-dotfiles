@@ -7,7 +7,7 @@
 # Apps
 menu="rofi -modi drun,run -show drun"
 terminal="alacritty"
-browser="firefox"
+browser="brave"
 painter="gimp"
 screenshot="flameshot gui"
 
@@ -37,7 +37,7 @@ ws8="8"
 ws9="9"
 ws10="10"
 ws1app="Alacritty"
-ws2app="firefox"
+ws2app="Brave-browser"
 ws3app="Thunderbird"
 ws4app="discord"
 ws5app="PortalWars-Linux-Shipping"

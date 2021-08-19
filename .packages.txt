@@ -73,6 +73,7 @@ Apps ---------------------------------------------
 vim: text editor
 ranger: file explorer
 thunar: gui file explorer
+    tumbler: image thumbnail generator
 firefox
 spotify
 discord
@@ -80,7 +81,8 @@ gimp
 flameshot: screenshot
 steam
 thunderbird: email client
-systray-x-git: thunderbird tray icon
+    systray-x-git: thunderbird tray icon
+libreoffice: document editor
 
 Fonts ---------------------------------------------
 

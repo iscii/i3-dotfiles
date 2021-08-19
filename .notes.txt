@@ -1,4 +1,4 @@
-Installing Spotify:
+Installing Spotify/Brave:
 	run $ gpg --keyserver keyserver.ubuntu.com --recv-keys <unknown public key from error>
 
 Remove asusctl methoderror:
