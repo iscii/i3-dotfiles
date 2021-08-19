@@ -43,6 +43,18 @@ cursor-click = pointer
 ;override-redirect = true
 ;modules-left = cava 
 
+[bar/tray]
+inherit = bar/main
+width = 30%
+border-top-size = 10
+offset-x = 0.6%
+override-redirect = true
+wm-restack = i3
+tray-position = left
+tray-maxsize = 16
+tray-padding = 2
+modules-left = placeholder
+
 [bar/playing]
 inherit = bar/main
 width = 40%
@@ -91,19 +103,16 @@ modules-right = bluetooth wireless-network mic pulseaudio date
 inherit = bar/main
 width = 1
 border-top-size = 10
-modules-center = placeholder_top
+modules-center = placeholder
 
 [bar/placeholder_bottom]
 inherit = bar/main
 width = 1
 border-bottom-size = 10
 bottom = true
-modules-center = placeholder_bottom
+modules-center = placeholder
 
-[module/placeholder_top]
-type = custom/script
-
-[module/placeholder_bottom]
+[module/placeholder]
 type = custom/script
 
 [module/ws]
@@ -111,10 +120,11 @@ type = internal/i3
 pin-workspaces = false 
 ws-icon-0 = 1;
 ws-icon-1 = 2;
-ws-icon-2 = 3;
-ws-icon-3 = 4;
-ws-icon-4 = 5;
-ws-icon-5 = 6;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
 ; i need this to be mai's bunny hairclip
 ws-icon-default =  
 index-sort = true

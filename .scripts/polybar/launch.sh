@@ -10,7 +10,7 @@ done
 
 # Launch Polybar
 # polybar cava &
-polybar indicators &
+polybar tray &
 polybar playing &
 polybar system &
 polybar ws &
