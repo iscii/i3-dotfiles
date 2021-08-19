@@ -5,3 +5,4 @@ Remove asusctl methoderror:
 	run $ systemctl enable asusd.service
 
 Do not sudo AUR package helper installs
+Windows location somehow jacks the wifi device on arch so keep that off. If ip link is missing wlp2s0, this is probably why.
