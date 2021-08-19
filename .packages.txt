@@ -16,6 +16,7 @@ os-prober: utility to detect other OSs for dual boot
 pulseaudio: audio driver
 pulseaudio-alsa: pulseaudio to support bluez
 pulseaudio-bluetooth: pulseaudio to support bluez
+pamixer: higher-level pa manager
 bluez: bluetooth driver
 bluez-utils: bluez utilites
 xf86-input-libinput: input library for xorg; managing input devices
@@ -29,7 +30,7 @@ fcitx: language input method backend
 fcitx5-mocz: japanese ime
 fcitx5-configtool: fcitx config tool
 fcitx5-gtk: gtk input method module for fcitx
-xss-lock: session lock manager
+brightnessctl: brightness controller
 
 [vm] 
 # virtualbox-guest-utils: virtualbox drivers
@@ -38,7 +39,6 @@ xss-lock: session lock manager
 linux-g14
 linux-g14-headers
 nvidia-dkms: nvidia drivers for custom kernels (linux-g14)
-brightnessctl: brightness controller
 asusctl
 
 Tools --------------------------------------------
