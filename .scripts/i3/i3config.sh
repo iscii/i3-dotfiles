@@ -286,9 +286,10 @@ fi
 
 # Application keybinds
 options="${options}bindsym \$mod+d exec \"$menu\"\n"
+options="${options}bindsym Menu exec \"$menu\"\n"
 options="${options}bindsym \$mod+Return exec $terminal\n"
 options="${options}bindsym \$mod+f exec $browser\n"
-options="${options}bindsym \$mod+g exec $painter\n"
+# options="${options}bindsym \$mod+g exec $painter\n"
 options="${options}bindsym \$mod+shift+s exec $screenshot\n"
 
 # Startup commands

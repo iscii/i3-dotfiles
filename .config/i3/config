@@ -102,9 +102,9 @@ bindsym XF86TouchpadToggle exec bash /home/iscii/.scripts/i3/iZArchG14/touchpad.
 bindsym $mod+p exec bash /home/iscii/.scripts/i3/iZArchG14/bluetoothtoggle.sh
 exec_always picom --experimental-backends
 bindsym $mod+d exec "rofi -modi drun,run -show drun"
+bindsym Menu exec "rofi -modi drun,run -show drun"
 bindsym $mod+Return exec alacritty
 bindsym $mod+f exec firefox
-bindsym $mod+g exec gimp
 bindsym $mod+shift+s exec flameshot gui
 exec_always feh --bg-scale /home/iscii/Pictures/wallpapers/wallpaper.png
 exec_always --no-startup-id bash /home/iscii/.scripts/polybar/launch.sh

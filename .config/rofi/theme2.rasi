@@ -1,0 +1,132 @@
+/**
+ * ROFI Color theme
+ * User: iscii
+ */
+* {
+    black:  #000000;
+    red:    #ff0000;
+    // Mai palette
+    g:      #70727f;
+    lg:     #bab9c2;
+    bpu:    #495c97;
+    tbpu:   #495c977f;
+    pu:     #a6a8d9;
+    tpu:    #a6a8d99f;
+    lpu:    #d5d3f7;
+    tlpu:   #d5d3f75f;
+    dpi:    #d6afb4;
+    pi:     #efd7d1;
+
+    t:      #00000000;
+    font: "Lotuscoder Bold 15";
+}
+
+window {
+    location: center;
+    anchor:   center;
+    padding: 0px;
+    border:  0px;
+//  border-radius: 5px;
+    color: @pu;
+    background-color: @black;
+    spacing: 0;
+    children:  [mainbox];
+    orientation: horizontal;
+}
+
+mainbox {
+    spacing: 0;
+    children: [ inputbar, message, listview ];
+}
+
+message {
+    border-color: @bpu;
+    border: 2px; 
+//  border-radius: 10px;
+    padding: 5;
+    background-color: @tbpu;
+}
+message {
+    font: "Lotuscoder Bold 8";
+    color: @black;
+}
+
+inputbar {
+    color: @lpu;
+    padding: 11px;
+    background-color: @tbpu;
+    border: 2px 2px 2px 2px;
+//  border-radius:  0px 15px 0px 0px;
+    border-color: @bpu;
+    font: "Lotuscoder Bold 18";
+}
+entry,prompt,case-indicator {
+    text-font: inherit;
+    text-color: inherit;
+}
+prompt {
+    margin: 0px 0.3em 0em 0em ;
+}
+listview {
+    padding: 8px;
+//  border-radius: 0px 0px 15px 0px;
+    border-color: @bpu;
+    border: 0px 2px 2px 2px;
+    background-color: @tbpu;
+    dynamic: false;
+    lines: 20;
+}
+element {
+    padding: 3px;
+    vertical-align: center;
+//  border: 2px;
+    border-radius: 4px;
+    background-color: @t;
+    color: @pu;
+    font: inherit;
+}
+element selected normal {
+    background-color: @tpu;
+    text-color: @lpu;
+}
+element selected active {
+    background-color: @tpu;
+    text-color: @lpu;
+}
+element selected urgent {
+    background-color: @tpu;
+    text-color: @red;
+}
+element normal normal {
+    background-color: @t;
+    text-color: @pu; 
+}
+element normal active {
+    background-color: @t;
+    text-color: @pu; 
+}
+element normal urgent {
+    background-color: @t;
+    text-color: @red;
+}
+element alternate normal {
+    background-color: @t;
+    text-color: @pu;
+}
+element alternate active {
+    background-color: @t;
+    text-color: @pu;
+}
+element alternate urgent {
+    background-color: @t;
+    text-color: @red;
+}
+element-icon {
+    size: 1.65ch;
+}
+scrollbar {
+    border: 0;
+    handle-color: @pu;
+    handle-width: 0px;
+    padding: 0;
+}
