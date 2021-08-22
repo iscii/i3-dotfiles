@@ -51,6 +51,7 @@ jshon [u]: json parser for shell [r: packer]
 unzip: unzipper
 xbindkeys: get key code
 neofetch
+upower: battery status
 
 Interface ----------------------------------------
 
@@ -74,7 +75,7 @@ vim: text editor
 ranger: file explorer
 thunar: gui file explorer
     tumbler: image thumbnail generator
-firefox
+brave
 spotify
 discord
 gimp
@@ -83,6 +84,7 @@ steam
 thunderbird: email client
     systray-x-git: thunderbird tray icon
 libreoffice: document editor
+shotcut: video editor
 
 Fonts ---------------------------------------------
 

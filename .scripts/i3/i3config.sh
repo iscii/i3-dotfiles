@@ -36,13 +36,7 @@ ws7="7"
 ws8="8"
 ws9="9"
 ws10="10"
-ws1app="Alacritty"
-ws2app="Brave-browser"
-ws3app="Thunderbird"
-ws4app="discord"
-ws5app="PortalWars-Linux-Shipping"
-ws6app="Steam"
-# ws7 is reserved for spotify
+wsapps=( "Alacritty" "Brave-browser" "Thunderbird" "discord" "PortalWars-Linux-Shipping" "Steam" )
 gaps_inner=10
 gaps_outer=0
 
@@ -187,12 +181,12 @@ options="${options}bindsym \$mod+Shift+9 move container to workspace $ws9\n"
 options="${options}bindsym \$mod+Shift+0 move container to workspace $ws10\n"
 
 # Assign applications to workspaces
-options="${options}assign [class=\"$ws1app\"] $ws1\n"
-options="${options}assign [class=\"$ws2app\"] $ws2\n"
-options="${options}assign [class=\"$ws3app\"] $ws3\n"
-options="${options}assign [class=\"$ws4app\"] $ws4\n"
-options="${options}assign [class=\"$ws5app\"] $ws5\n"
-options="${options}assign [class=\"$ws6app\"] $ws6\n"
+options="${options}assign [class=\"${wsapps[0]}\"] $ws1\n"
+options="${options}assign [class=\"${wsapps[1]}\"] $ws2\n"
+options="${options}assign [class=\"${wsapps[2]}\"] $ws3\n"
+options="${options}assign [class=\"${wsapps[3]}\"] $ws4\n"
+options="${options}assign [class=\"${wsapps[4]}\"] $ws5\n"
+options="${options}assign [class=\"${wsapps[5]}\"] $ws6\n"
 options="${options}for_window [class=\"Spotify\"] move to workspace $ws7\n" # Spotify
 
 # Running with i3-gaps
