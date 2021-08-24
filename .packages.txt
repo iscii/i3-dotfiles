@@ -31,6 +31,7 @@ fcitx5-mocz: japanese ime
 fcitx5-configtool: fcitx config tool
 fcitx5-gtk: gtk input method module for fcitx
 brightnessctl: brightness controller
+trash-cli: trash manager
 
 [vm] 
 # virtualbox-guest-utils: virtualbox drivers
@@ -68,10 +69,12 @@ picom-git: compositor for window customization and transparency
 feh: wallpaper manager
 polybar: status bar
 # cava: audio visualizer
+redshift: screen temp
+    python-gobject: resolves redshift-gtk attribute error
 
 Apps ---------------------------------------------
 
-vim: text editor
+gvim: vim w/ extra features like clipboard stuff 
 ranger: file explorer
 thunar: gui file explorer
     tumbler: image thumbnail generator
@@ -85,6 +88,20 @@ thunderbird: email client
     systray-x-git: thunderbird tray icon
 libreoffice: document editor
 shotcut: video editor
+obs-studio
+unityhub
+    gconf: unity dependency
+visual-studio-code-bin: microsoft vscode
+    gnome-keyring: github authentication error for vscode
+    dotnet-runtime
+    dotnet-sdk
+    mono-msbuild
+    mono
+python
+python-pip: python package manager
+    pip packages:
+    i3ipc: unityrepaint script dependency
+    pynput: unityrepaint script dependency
 
 Fonts ---------------------------------------------
 

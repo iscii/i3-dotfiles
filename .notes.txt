@@ -4,5 +4,9 @@ Installing Spotify/Brave:
 Remove asusctl methoderror:
 	run $ systemctl enable asusd.service
 
+Getting VSCode to work with Unity
+    follow all arch wiki steps https://wiki.archlinux.org/title/Unity3D
+    enable generation of .csproj files for Registry and Built-in packages Edit > Preferences > External Tools
+
 Do not sudo AUR package helper installs
 Windows location somehow jacks the wifi device on arch so keep that off. If ip link is missing wlp2s0, this is probably why.

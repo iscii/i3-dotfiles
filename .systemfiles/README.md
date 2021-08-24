@@ -7,4 +7,6 @@
 **/etc/systemd/system/suspend@.service**  
     $ sudo systemctl enable suspend@<user>.service  
     *Runs i3lock-color script upon system suspend/sleep (including lid close)*  
-
+**/usr/lib/systemd/user/redshift.service
+    $ systemctl --user enable redshift.service
+    *Defines environment for redshift so that it stops failing on startup*

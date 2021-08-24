@@ -36,7 +36,8 @@ ws7="7"
 ws8="8"
 ws9="9"
 ws10="10"
-wsapps=( "Alacritty" "Brave-browser" "Thunderbird" "discord" "PortalWars-Linux-Shipping" "Steam" )
+# Thunderbird 2, Unity 3, Spotify 7 
+wsapps=( "Alacritty" "Brave-browser" "Code" "discord" "PortalWars-Linux-Shipping" "Steam" )
 gaps_inner=10
 gaps_outer=0
 
@@ -187,6 +188,11 @@ options="${options}assign [class=\"${wsapps[2]}\"] $ws3\n"
 options="${options}assign [class=\"${wsapps[3]}\"] $ws4\n"
 options="${options}assign [class=\"${wsapps[4]}\"] $ws5\n"
 options="${options}assign [class=\"${wsapps[5]}\"] $ws6\n"
+
+# Specific/extra apps
+options="${options}assign [class=\"Thunderbird\"] $ws2\n"
+options="${options}assign [class=\"UnityHub\"] $ws3\n"
+options="${options}assign [class=\"Unity\"] $ws3\n"
 options="${options}for_window [class=\"Spotify\"] move to workspace $ws7\n" # Spotify
 
 # Running with i3-gaps
@@ -211,6 +217,7 @@ options="${options}for_window [window_type=\"menu\"] floating enable\n"
 
 # Hide borders
 # options="${options}hide_edge_borders both\n"
+options="${options}title_align center\n"
 
 # Window colors
 # <class> <borders> <bg> <text> <indicator> <child_borders>
@@ -292,6 +299,10 @@ options="${options}exec_always feh --bg-scale $HOME/Pictures/wallpapers/wallpape
 options="${options}exec_always --no-startup-id bash $HOME/.scripts/polybar/launch.sh\n"
 # Start fcitx
 options="${options}exec --no-startup-id fcitx5 -d\n"
+# Start geoclue agent for redshift
+options="${options}exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent\n"
+# Start unity repaint fix - remove if no longer using unity
+options="${options}exec --no-startup-id $HOME/.scripts/i3/unityrepaint.py &\n"
 
 # Create and write to config file
 printf "$options%s" > "$cfg_file" # Invalid format errors are caused by stray % (indicator) signs. make them %%.
