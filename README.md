@@ -5,12 +5,12 @@ System configuration files can be found in .systemfiles<br/>
 Other notes are in Documents/notes.txt
 
 Color Palette
-gray = #70727f
-light_gray = #bab9c2
-blue_purple = #495c97
-purple = #a6a8d9
-light_purple = #d5d3f7
-dark_pink = #d6afb4
+gray = #70727f <br/>
+light_gray = #bab9c2 <br/>
+blue_purple = #495c97 <br/>
+purple = #a6a8d9 <br/>
+light_purple = #d5d3f7 <br/>
+dark_pink = #d6afb4 <br/>
 pink = #efd7d1
 
 To clone to desktop:
