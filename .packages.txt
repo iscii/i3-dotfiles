@@ -32,6 +32,13 @@ fcitx5-configtool: fcitx config tool
 fcitx5-gtk: gtk input method module for fcitx
 brightnessctl: brightness controller
 trash-cli: trash manager
+python
+python-pip: python package manager
+    pip packages:
+    i3ipc: unityrepaint script dependency
+    pynput: unityrepaint script dependency
+    dbus-python: Stevens Wifi Script
+dpkg: debian package manager
 
 [vm] 
 # virtualbox-guest-utils: virtualbox drivers
@@ -63,7 +70,8 @@ i3 (group): window manager
     i3lock-color
     i3status
 dunst: notification manager
-rofi: menu
+rofi: menu [1.6.1]
+rofi-greenclip: clipboard manager for rofi
 lxappearance: theme manager
 picom-git: compositor for window customization and transparency
 feh: wallpaper manager
@@ -84,6 +92,7 @@ discord
 gimp
 flameshot: screenshot
 steam
+osu
 thunderbird: email client
     systray-x-git: thunderbird tray icon
 libreoffice: document editor
@@ -97,13 +106,17 @@ visual-studio-code-bin: microsoft vscode
     dotnet-sdk
     mono-msbuild
     mono
-python
-python-pip: python package manager
-    pip packages:
-    i3ipc: unityrepaint script dependency
-    pynput: unityrepaint script dependency
 
 Fonts ---------------------------------------------
 
 ttf-koruri: j
 ttf-vlgothic: j
+
+External ------------------------------------------
+
+xppentablet software
+galaxybuds client
+
+School --------------------------------------------
+
+Picobot

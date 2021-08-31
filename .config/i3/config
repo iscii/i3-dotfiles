@@ -111,8 +111,12 @@ bindsym Menu exec "rofi -modi drun,run -show drun"
 bindsym $mod+Return exec alacritty
 bindsym $mod+f exec brave
 bindsym $mod+shift+s exec flameshot gui
+bindsym $mod+c exec "rofi -modi 'clipboard:greenclip print' -show clipboard"
+bindsym $mod+y fullscreen disable; floating enable; resize set 400 300; sticky enable; move window to position 1400 44
+bindsym $mod+shift+y fullscreen disable; floating disable; sticky disable
 exec_always feh --bg-scale /home/iscii/Pictures/wallpapers/wallpaper.png
 exec_always --no-startup-id bash /home/iscii/.scripts/polybar/launch.sh
 exec --no-startup-id fcitx5 -d
 exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
 exec --no-startup-id /home/iscii/.scripts/i3/unityrepaint.py &
+exec --no-startup-id greenclip daemon

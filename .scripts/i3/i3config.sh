@@ -291,6 +291,11 @@ options="${options}bindsym \$mod+Return exec $terminal\n"
 options="${options}bindsym \$mod+f exec $browser\n"
 # options="${options}bindsym \$mod+g exec $painter\n"
 options="${options}bindsym \$mod+shift+s exec $screenshot\n"
+# rofi clipboard
+options="${options}bindsym \$mod+c exec \"rofi -modi 'clipboard:greenclip print' -show clipboard\"\n"
+# floating sticky youtube window
+options="${options}bindsym \$mod+y fullscreen disable; floating enable; resize set 400 300; sticky enable; move window to position 1400 44\n"
+options="${options}bindsym \$mod+shift+y fullscreen disable; floating disable; sticky disable\n"
 
 # Startup commands
 # Set wallpaper on startup
@@ -303,6 +308,10 @@ options="${options}exec --no-startup-id fcitx5 -d\n"
 options="${options}exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent\n"
 # Start unity repaint fix - remove if no longer using unity
 options="${options}exec --no-startup-id $HOME/.scripts/i3/unityrepaint.py &\n"
+# Start the greenclip clipboard daemon
+options="${options}exec --no-startup-id greenclip daemon\n"
+# Run xmodmap key swaps
+options="${options}exec --no-startup-id xmodmap $HOME/.Xmodmap\n"
 
 # Create and write to config file
 printf "$options%s" > "$cfg_file" # Invalid format errors are caused by stray % (indicator) signs. make them %%.
