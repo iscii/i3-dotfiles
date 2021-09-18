@@ -11,6 +11,8 @@ Getting VSCode to work with Unity
 Bluetoothctl cannot power on: org.bluez.Error.Busy
     run $ sudo rfkill unblock all
 
+Keep rofi at v 1.6.1; IgnorePkg = rofi in /etc/pacman.conf
+
 Do not sudo AUR package helper installs
 Windows location somehow jacks the wifi device on arch so keep that off. If ip link is missing wlp2s0, this is probably why.
 

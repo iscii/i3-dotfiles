@@ -39,6 +39,7 @@ python-pip: python package manager
     pynput: unityrepaint script dependency
     dbus-python: Stevens Wifi Script
 dpkg: debian package manager
+dislocker: bitlocker bypass for mounting
 
 [vm] 
 # virtualbox-guest-utils: virtualbox drivers
@@ -106,6 +107,7 @@ visual-studio-code-bin: microsoft vscode
     dotnet-sdk
     mono-msbuild
     mono
+zoom
 
 Fonts ---------------------------------------------
 

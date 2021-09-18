@@ -136,6 +136,14 @@ options="${options}bindsym \$mod+Shift+e exec \"i3-nagbar -t warning -m 'You pre
 # Lock session
 options="${options}bindsym \$mod+Shift+x exec bash $HOME/.scripts/i3/lock.sh\n"
 
+# Floating sticky youtube window
+options="${options}bindsym \$mod+y fullscreen disable; floating enable; resize set 400 300; sticky enable; move window to position 1400 44\n"
+options="${options}bindsym \$mod+shift+y fullscreen disable; floating disable; sticky disable\n"
+
+# Scroll through workspaces
+options="${options}bindsym --whole-window \$mod+Tab workspace next\n"
+options="${options}bindsym --whole-window \$mod+Shift+Tab workspace prev\n"
+
 # Resize window (you can also use the mouse for that)
 options="${options}mode resize {\n"
 options="${options}    bindsym h resize shrink width 10 px or 10 ppt\n"
@@ -293,9 +301,6 @@ options="${options}bindsym \$mod+f exec $browser\n"
 options="${options}bindsym \$mod+shift+s exec $screenshot\n"
 # rofi clipboard
 options="${options}bindsym \$mod+c exec \"rofi -modi 'clipboard:greenclip print' -show clipboard\"\n"
-# floating sticky youtube window
-options="${options}bindsym \$mod+y fullscreen disable; floating enable; resize set 400 300; sticky enable; move window to position 1400 44\n"
-options="${options}bindsym \$mod+shift+y fullscreen disable; floating disable; sticky disable\n"
 
 # Startup commands
 # Set wallpaper on startup
