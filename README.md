@@ -14,6 +14,8 @@ dark_pink = #d6afb4 <br/>
 pink = #efd7d1
 
 To clone to desktop:
-1. Follow https://wiki.archlinux.org/title/Dotfiles
-2. config remote add https://www.github.com/iscii/i3-dotfiles
-3. config pull
+1. set up bare repo and alias https://wiki.archlinux.org/title/Dotfiles
+2. set up git ssh https://docs.github.com/en/authentication/connecting-to-github-with-ssh
+3. config remote add <name> git@github.com:iscii/i3-dotfiles.git
+4. config pull <name> main
+5. config branch --set-upstream-to <name>/main
