@@ -15,5 +15,5 @@ pink = #efd7d1
 
 To clone to desktop:
 1. Follow https://wiki.archlinux.org/title/Dotfiles
-2. config remote add https://www.github.com/iscii/dotfiles
+2. config remote add https://www.github.com/iscii/i3-dotfiles
 3. config pull
